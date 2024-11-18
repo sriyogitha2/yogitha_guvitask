@@ -1,0 +1,208 @@
+#1You have been given a Python List [10, 501, 22, 37, 100, 999, 87, 351] your task is to create two List one which have all the Even Numbers and another List which will have all the ODD numbers in it ?
+
+list1=[10,501,22,37,100,999,87,351]
+# Assigned empty lists to l2 and l3
+l2=[]
+l3=[]
+l=len(list1)
+for i in range (0,l):
+#if number in list results to zero in modules then even else odd 
+#append to respective list
+    if list1[i]%2==0:
+        l2.append(list1[i])
+    else:
+        l3.append(list1[i])
+
+print(l2)
+print()   
+print(l3)
+        
+#2Given a Python List [10, 501, 22, 37, 100, 999, 87, 351] your task is to Count all the Prime Numbers and create a new Python List which will contain all the Prime Numbers in it ?
+
+
+list1=[10,501,22,37,100,999,87,351]
+# Initialize an empty list to store prime numbers
+prime=[]
+# Loop each element in list1
+for a in list1:
+# Initialize a counter for divisors
+    c=0
+# Loop through numbers from 1 to a
+
+    for i in range (1,a+1):
+# Check if i is a divisor of a
+        if a%i==0:
+# Increment the counter if it is a divisor
+            c=c+1
+# If the number has exactly 2 divisors, it's prime
+    if(c==2):
+# Append the prime number to the list
+        prime.append(a)
+# Print the list of prime numbers & number of prime numbers
+print(prime)
+print(len(prime))
+
+#3  Given a Python List [10, 501, 22, 37, 100, 999, 87, 351] Find out how many numbers are there in the given Python List which are Happy Numbers?
+
+# Define the function to check if a number is a happy number
+def isHappyNumber(num):  
+# Initialize variables rem (remainder) and sum to 0   
+    rem = sum = 0  
+# Loop until num becomes 0 
+    while(num > 0):    
+# Find the remainder (last digit) of the number
+        rem = num % 10 
+# Add the square of the remainder to the sum
+        sum = sum + (rem **2)
+# Remove the last digit from the number (integer division by 10) 
+        num = num // 10  
+# Return the sum of squares of the digits
+
+    return sum
+
+num_list = [10, 501, 22, 37, 100, 999, 87, 351]
+# Loop each number in the list
+for num in num_list: 
+# Set the initial result to the current number
+    result = num
+# Loop until the result becomes 1 or 4
+    while(result != 1 and result != 4):    
+        result = isHappyNumber(result) 
+# If the result is 1, it's a happy number 
+    if(result == 1):    
+        print(str(num) + " is a happy number") 
+# If the result is 4, it's not a happy number   
+    elif(result == 4):    
+        print(str(num) + " is not a happy number")
+
+
+#4 Write a python program to find the sum of the first and last digit of an integer?
+
+number = int(input())  
+# Convert the number to a string so we can access the first and last digits
+num_str = str(number)
+# Get the first digit by accessing the first character of the string and converting it back to an integer
+first_digit = int(num_str[0])
+# Get the last digit by accessing the last character of the string and converting it back to an integer
+last_digit = int(num_str[-1])
+# Add the first and last digits together
+
+sum_digits = first_digit + last_digit
+
+# Print the sum of the first and last digits
+print("Sum of first and last digits:", sum_digits)
+
+
+#5 You have been given a list of N integers which represents the number of Mangoes in a bag. Each bag has a variable number of Mangoes. There are M students in a Guvi class, your task is to distribute the Mangoes in such a way that each student gets one Bag. The difference between the number of Mangoes in a bag with maximum Mangoes and Bag with minimum Mangoes given to the student is minimum ?
+
+# Define a function to distribute mangoes and find the minimum difference
+def distribute_mangoes(mangoes, M):
+ # Sort the mangoes list to make it easier to find the range of M mangoes
+    mangoes.sort()
+    
+ # Set min_diff to infinity so any smaller difference will be considered  
+    min_diff = float('inf')
+    
+# Loop from 0 to len(mangoes) - M, so that M elements are considered in the sublist    
+    for i in range(len(mangoes) - M + 1): 
+ # Find the difference between the last and first mangoes in the sublist of size M      
+        curr_diff = mangoes[i + M - 1] [2] - mangoes[i] [0]
+ # Update min_diff to the smaller value between current min_diff and the current difference
+        min_diff = min(min_diff, curr_diff)
+ # Return the minimum difference found between the maximum and minimum mango counts
+   
+    return min_diff
+
+mangoes = [12, 4, 7, 9, 2, 5, 10, 6]
+# Number of people 
+M = 3  
+# Call the function and store the result in the variable 'result'
+result = distribute_mangoes(mangoes, M)
+print(f"The minimum difference between the bags with max and min mangoes is: {result}")
+
+#6 You have been given three lists. Your task is to find the duplicates in the three lists. Write a python program for the same. You can use your own python lists ?
+
+l1=[1,2,3,4,6,7]
+l2=[7,8,9,6,5]
+l3=[11,12,15,16,6,7]
+# Find common elements (intersection) between l1, l2, and l3 using sets
+dup=set(l1)&set(l2)&set(l3)
+# Check if the intersection set is non-empty
+if dup:
+    print(dup)
+else:
+    print("no duplicate")
+
+#7 Write a python program to find the first non - repeating elements in a given list of integers ?
+
+
+l1=[0,8,6,4,2,6]
+# Initialize an empty list nl to store elements that appear only once in l1
+nl=[]
+# Loop each element i in the list l1
+for i in l1:
+# Initialize count to 0 for each element i
+    count=0
+# Loop through each element j in the list l1
+    for j in l1:
+# If i is equal to j
+        if i==j:
+# Increment the count for the occurrence of i
+            count=count+1
+ # If the element i appears exactly once in l1
+    if count==1:
+# Append i to the list nl
+        nl.append(i)
+# Print the first element of the list nl
+print(nl[0])
+
+#8 Write a python program to find the minimum element in a rated and sorted list ?
+
+l=[1,3,5,7,0,2,4,6]
+# Sort the list l in ascending order and store the result in the variable min
+min=sorted(l)
+# Print the first element of the sorted list min 
+print(min[0])
+
+
+#9 You have been given a Python list [10,20,30,9] and a value of 59. Write a python program to find the triplet in the list whose sum is equal to the given value ?
+
+
+numbers = [10,20,30,9]
+# Define the target sum we are looking for with three numbers from the list
+target_sum = 59
+# Get the length of the list numbers (number of elements in the list)
+n = len(numbers)
+
+# Initialize a flag variable to track whether a valid triplet has been found
+found = False
+# Outer loop that iterates through the list numbers, considering the first element of the triplet
+for i in range(n):
+# Middle loop that iterates through the elements after i, considering the second element of the triplet
+    for j in range(i + 1, n):
+# Inner loop that iterates through the elements after j, considering the third element of the triplet
+        for k in range(j + 1, n):
+# Check if the sum of the triplet equals the target sum
+            if numbers[i] + numbers[j] + numbers[k] == target_sum:
+# Print the triplet that matches the target sum
+                print(f"Triplet found: ({numbers[i]}, {numbers[j]}, {numbers[k]})")
+# Set the found flag to True since we found a valid triplet
+                found = True
+# Break out of the innermost loop since we found the triplet
+                break
+# If a triplet has been found,Break out of the middle loop 
+        if found:
+            break
+# If a triplet has been found,Break out of the outter loop
+    if found:
+        break
+# If no triplet was found after all iterations
+if not found:
+# Print that no triplet matches the target sum
+    print("No triplet found with the given sum.")
+
+
+
+
+            
+        
