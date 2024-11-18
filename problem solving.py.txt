@@ -1,0 +1,272 @@
+#1Write a Python program to calculate the total number of Vowels and Count of each
+individual vowel A,E,I,O,U in the string "Guvi Geeks Network Private Limited" ?
+
+a="Guvi Geeks Network Private Limited"
+count_a=count_e=count_i=count_u=count_o=0
+
+#converting string to lower case to count every char 
+
+a=a.lower()
+
+#this loop check whether vowel or not and counts if vowel
+
+for char in a:S
+    if char=='a':
+        count_a+=1
+    elif char=='e':
+        count_e+=1
+    elif char=='i':
+        count_i+=1
+    elif char=='o':
+        count_o+=1
+    elif char=='u':
+        count_u+=1
+
+#display the total count of vowels
+        
+tot=count_a+count_e+count_i+count_o+count_u
+
+#display the each count of vowels
+
+print(f"count of a {count_a}")
+print(f"count of e {count_e}")
+print(f"count of i {count_i}")
+print(f"count of o {count_o}")
+print(f"count of u {count_u}")
+        
+print(tot)
+
+#2 Create a Pyramid of Numbers from 1 to 20 using For loop ?
+
+rows = 10
+num = 1 
+
+#this loop through each row
+
+for i in range(1, rows):   
+
+#print the space respectively
+
+    print(" " * (rows - i), end="")   
+
+#print number in row
+
+    for j in range(i):             
+        if num <= 20:   
+            print(num, end=" ")  
+
+#num gets incremented
+
+            num += 1  
+
+#print in new line after each row
+
+    print()
+
+
+
+#3Write a program that takes a string and returns a new string with all the vowels removed.
+
+a="Apple"
+res=""
+
+#converting string to lower case to count every char
+
+a=a.lower()
+
+#this loop check whether vowel or not and count if its not vowel
+
+for char in a:
+    if(char=='a'):
+        pass
+    elif(char=='e'):
+        pass
+    elif(char=='i'):
+        pass
+    elif(char=='o'):
+        pass
+    elif(char=='u'):
+        pass
+    else:
+        res+=char;
+
+# Print the result without vowels
+
+print(f"result:{res}")
+
+#4 Write a program that takes a string and returns the number of unique characters in it.
+
+user= "elements"
+uniq = [] 
+
+# Loop checks each character in the string
+
+for char in user:
+#char not in uniq add to the list
+    if char not in uniq: 
+        uniq.append(char)  
+count = 0
+
+#for each iteration uniq count incremented
+for _ in uniq:
+    count += 1
+
+# Join the unique characters into a single string with spaces in between  
+  
+res = ' '.join(uniq)
+
+# Print the characters
+
+print(res)
+
+# Print the count
+
+print(f"Number of unique characters: {count}")
+
+
+#5  Write a program that takes a string and returns True if it is a palindrome, False otherwise.
+
+a=str(input("Enter the String:"))
+#using slicing to reverse he string 
+
+reversed_string=a[::-1]
+
+#checks string a and reversed_string
+
+if a==reversed_string:
+
+#if equal prints palindrome
+
+    print("Palindrome")
+
+else:
+
+#not equal printsnot palindrome
+
+    print("Not Palindrome")
+
+#6Write a program that takes two strings and returns the longest common substring
+between them.
+
+def longest_common_substring(str1, str2):
+    # Get the lengths of both strings
+    m = len(str1)
+    n = len(str2)
+    
+    # Create a 2D matrix to store the length of longest common suffixes of substrings
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
+    
+    # Variable to track the length of the longest common substring
+    longest_len = 0
+    ending_index = 0  # To store the ending index of the longest common substring
+    
+    # Fill the dp table
+    for i in range(1, m + 1):
+        for j in range(1, n + 1):
+            if str1[i - 1] == str2[j - 1]:
+                dp[i][j] = dp[i - 1][j - 1] + 1
+                
+                # Update the result if the new length is greater
+                if dp[i][j] > longest_len:
+                    longest_len = dp[i][j]
+                    ending_index = i - 1
+            else:
+                dp[i][j] = 0
+    
+    # If there is no common substring
+    if longest_len == 0:
+        return ""
+    
+    # Return the longest common substring
+    return str1[ending_index - longest_len + 1: ending_index + 1]
+
+str1 = input("Enter the first string: ")
+str2 = input("Enter the second string: ")
+
+result = longest_common_substring(str1, str2)
+print(f"The longest common substring is: '{result}'")
+
+#7 Write a program that takes a string and returns the most frequent character in it.
+
+input_string = "example string with some repeated characters"
+
+#Initialize an empty dictionary to store character frequencies
+char_frequency = {}
+
+# Loop checks each character in the string
+
+for char in input_string:
+#If the character is already in the dictionary, increase its count
+    if char in char_frequency:
+        char_frequency[char] += 1
+#If the character is not in the dictionary, add it with count 1
+    else:
+        char_frequency[char] = 1
+
+#Initialize variables to find the most frequent character
+max_frequency = 0
+most_frequent_char = ''
+
+#loop checks which character has highest count         
+for char, fff in char_frequency.items():
+#If the current character's frequency is higher than max_frequency
+    if fff > max_frequency: 
+        max_frequency = fff
+        most_frequent_char = char
+
+
+print(f"The most frequent character is: '{most_frequent_char}' with {max_frequency} occurrences.")
+
+#8Write a program that takes a string and returns True if it is an anagram of another string,
+False otherwise.
+
+
+string1=str(input("enter the string1:"))
+string2=str(input("enter the string2:"))
+
+#sorting string 1 using sort method
+string3=sorted(string1)
+
+#sorting string 2 using sort method
+
+string4=sorted(string2)
+
+#if string 3 and string 4 equals then prints true
+
+if string3==string4:
+    print("true")
+
+#if string 3 and string 4 not equals then prints false
+
+else:
+    print("false")
+
+
+
+#9Write a program that takes a string and returns the number of words in it
+
+string=str(input("enter the string:")) 
+#initialize count to zero
+
+count=0
+
+#loop checks the chara in the string
+
+for char in string:
+
+#if char equas to the space ,count gets incremented
+
+    if char==" ":
+        count=count+1
+
+#prints the count SS
+print(count+1)
+
+
+
+
+
+
+
+
+
