@@ -12,7 +12,6 @@ This project contains automated tests for verifying the functionality of the [GU
 - [Code Structure](#code-structure)
 - [Test Cases](#test-cases)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Overview
 
